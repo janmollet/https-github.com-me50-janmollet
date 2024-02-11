@@ -1,0 +1,27 @@
+.barra{
+    border-radius: 2rem;
+    width: 35rem;
+    height: 2rem;
+    border-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rem;
+}
+
+.bt-derecha{
+    float: right;
+    border-radius: 2rem;
+    border-color: grey;
+    width: 10rem;
+    height: 3rem;
+}
+
+.margin{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.hola{
+    background-color: aqua;
+}
