@@ -7,7 +7,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20rem;
+    margin-top: 15rem;
+    margin-left: 30%;
 }
 
 .bt-derecha{
@@ -17,11 +18,51 @@
     width: 10rem;
     height: 3rem;
 }
+.margen{
+    display: flex;
+    justify-content: flex-end;
+}
+.margen-derecha {
+    margin-right: 1rem; /* Ajusta el margen entre el segundo botón y el borde de la pantalla */
+}
 
 .margin{
     margin-left: 5rem;
     margin-right: 5rem;
 }
-.hola{
-    background-color: aqua;
+.titulo{
+    text-align: center;
+    margin-top: 15rem;
+    font-size: 4rem;
+
+}
+.barra, .submit{
+    display: block; /* Los convierte en elementos de bloque para ocupar el ancho disponible */
+    margin: 10px auto;
+}
+.red{
+    color: #eb4d40;
+}
+.green{
+    color: #34a853;
+}
+.yellow{
+    color: #fbbc05;
+}
+.blue{
+    color: #4285f4;
+}
+.submit{
+    border-radius: 2rem;
+    margin-top: 1rem;
+    width: 15rem;
+    height: 2rem;
+    background-color: white;
+    border-color: #C3C3C3;
+}
+
+.submit:hover{
+    background-color:#4285f4 ;
+    color: white;
+    transform: scale(1.05);
 }
