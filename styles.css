@@ -7,10 +7,43 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 15rem;
+    margin-top: 20rem;
     margin-left: 30%;
 }
+.marg{
+    margin-top: 3rem;
+}
+.marg2{
+    margin-top: 5rem;
+}
+.marg2 p{
+    display: inline;
+}
+.espacio{
+    margin-top: 3rem;
+}
+.barra2{
+    width: 35rem;
+    height: 1.5rem;
+    border-color: white;
+    flex-direction: column;
+    text-align: left;
+    align-items: left;
+    margin-bottom: 10px;
+}
+.barra2:focus{
+    outline: 2px solid #4285f4;
 
+}
+.align{
+    margin-left: 4rem;
+}
+.align2{
+    margin-left: 2.5rem;
+}
+.align3{
+    margin-left: 2rem;
+}
 .bt-derecha{
     float: right;
     border-radius: 2rem;
@@ -32,7 +65,13 @@
 }
 .titulo{
     text-align: center;
-    margin-top: 15rem;
+    margin-top: 8rem;
+    font-size: 4rem;
+
+}
+.titulo2{
+    text-align: center;
+    margin-top: 3rem;
     font-size: 4rem;
 
 }
@@ -65,4 +104,26 @@
     background-color:#4285f4 ;
     color: white;
     transform: scale(1.05);
+}
+
+.submit2{
+    border-radius: 2rem;
+    margin-top: 1rem;
+    width: 15rem;
+    height: 2rem;
+    background-color: white;
+    border-color: #C3C3C3;
+}
+
+.submit2:hover{
+    background-color:#34a853 ;
+    color: white;
+    transform: scale(1.05);
+}
+.barra, .submit2{
+    display: block; /* Los convierte en elementos de bloque para ocupar el ancho disponible */
+    margin: 10px auto;
+}
+.feelucky-btn{
+    text-decoration: none;
 }
