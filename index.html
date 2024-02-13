@@ -12,11 +12,22 @@
         
         <h1 class="titulo"><span class="blue">G</span><span class="red">o</span><span class="yellow">o</span><span class="blue">g</span><span class="green">l</span><span class="red">e</span> <span class="blue">Search</h1>
         
-        <div>
+        <div class="marg">
             <form  action="https://google.com/search">
                 <input class="barra" type="text" name="q">
-                <input class="submit" type="submit" value="Google Search">
+                <input class="submit espacio" type="submit" value="Google Search">
+                <a class="feelucky-btn" id="feelingLuckyLink" href="javascript:void(0)"><button class="espacio submit2">I'm Feeling Lucky </button></a>
             </form>
         </div>
+        <script>
+            document.getElementById('feelingLuckyLink').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+    
+                var query = document.querySelector('.barra').value;
+                var feelingLuckyUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query) + '&btnI';
+    
+                window.location.href = feelingLuckyUrl;
+            });
+        </script>
     </body>
 </html>    
