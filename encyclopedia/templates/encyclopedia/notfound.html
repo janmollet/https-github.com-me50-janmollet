@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Page not found
+{% endblock %}
+
+{% block body %}
+    
+    <h1 style="background-color: beige;">Page Not Found</h1>
+    <p>The page "{{ title }}" doesn't exist.</p>
+    <form action="{% url 'create' %}" method="get">
+        <input type="hidden" name="title" value="{{ title }}">
+        <button class="btn btn-info" type="submit">Create it</button>
+    </form>
+
+{% endblock %}
