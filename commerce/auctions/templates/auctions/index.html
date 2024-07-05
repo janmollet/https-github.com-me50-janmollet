@@ -1,0 +1,34 @@
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <ul>
+        {% for listing in active_listings %}
+        <div class="card mb-3" style="max-width: 800px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="{% url 'listing_detail' listing.id %}"> 
+                <img class="card-img-top img-fluid" src="{{ listing.image}}">
+              </a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{listing.title}}</h5>
+                <p class="card-text">{{listing.description}}</p>
+                <p>Starting Bid: ${{ listing.starting_bid }}</p>
+                <p>Latest Bid: ${{ listing.latest_bid }}</p>
+                <p>Last Bidder: {{ listing.last_bidder}}</p>
+                <p class="card-text"><small>{{listing.created_at}}</small></p>
+              </div>
+              {% if user != listing.owner and user.is_authenticated%}
+              <a class="btn btn-primary" href="{% url 'listing_detail' listing.id %}">Add a Comment</a>
+              {% endif %}
+              <a class="btn btn-secondary" href="{% url 'listing_detail' listing.id %}">Click to see more information</a>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+        
+{% endblock %}
