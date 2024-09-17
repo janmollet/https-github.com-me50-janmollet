@@ -1,0 +1,15 @@
+
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h1>The bid has been closed succesfully!</h1>
+    {% if winner %}
+    <h2>{{ winner }} is the winner!</h2>
+    <!-- Aquí puedes mostrar otros detalles del ganador si es necesario -->
+    {% else %}
+    <p>{{ message }}</p>
+    {% endif %}
+</div>
+        
+{% endblock %}

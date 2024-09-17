@@ -1,0 +1,74 @@
+
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+
+<div class="container">
+    <h1>{{ listing.title }}</h1>
+    <img class="card-img-top" src="{{ listing.image }}" style="width: 18rem; height: 20rem;">
+    <div class="card-body">
+        <p class="card-text"><b>Description:</b> {{ listing.description }}</p>
+        <p><b>Price:</b> ${{ listing.starting_bid }}</p>
+        <p><b>Owner:</b> {{ listing.owner }}</p>
+        <p><b>Category:</b> {{ listing.category }}</p>
+        <h3>Comments:</h3>
+        {% if comments %}
+            <ul>
+                {% for comment in comments %}
+                    <li>
+                        <p><b>{{ comment.user.username }}</b> - {{ comment.created_at }}</p>
+                        <p>{{ comment.comentari }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No comments yet.</p>
+        {% endif %}
+
+        <!-- Form to add new comment -->
+        {% if user.is_authenticated and user != listing.owner %}
+            <form action="{% url 'listing_detail' listing.id %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="comment_text"><b>Add your comment:</b></label>
+                    <textarea class="form-control" id="comment_text" name="comment_text" placeholder="Add your comment" required></textarea>
+                </div>
+                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                <input class="btn btn-primary" type="submit" value="Comment">
+            </form>
+        {% else %}
+            <p><b>You cannot add a comment if you are the owner of the product</b></p>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <form action="{% url 'save_to_watchlist' listing.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary">Save the product</button>
+        </form>
+        {% else %}
+        <a class="btn btn-secondary" href="{% url 'login' %}">Log in to save the product</a>
+        {% endif %}
+    </div>
+    {% if user.is_authenticated %}
+    <form action="{% url 'place_bid' listing.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="bid"><b>Bid must be at least as large as the starting bid</b></label>
+            <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input class="form-control" type="number" id="bid" name="bid" placeholder="Starting bid" required>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Bid">
+    </form>
+    {% endif %}
+    {% if user.is_authenticated and user == listing.owner %}
+    <form action="{% url 'close_auction' listing.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Close Auction" class="btn btn-warning">
+    </form>
+    {% endif %}      
+</div>
+{% endblock %}
